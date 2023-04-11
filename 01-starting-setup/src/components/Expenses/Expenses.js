@@ -9,8 +9,8 @@ const Expenses = (props) => {
 
         <Card className="expenses">
 
-            {props.expenses.map(expense => (
-                <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}></ExpenseItem>
+            {props.expenses.map((expense, key) => (
+                <ExpenseItem key={key} title={expense.title} amount={expense.amount} date={expense.date}></ExpenseItem>
             ))}
 
             {/* < ExpenseItem title={props.expenses[0].title} amount={props.expenses[0].amount} date={props.expenses[0].date} /> */}
