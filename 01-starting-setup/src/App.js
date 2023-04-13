@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
@@ -42,14 +44,21 @@ function App() {
 
     }
 
+    const router = createBrowserRouter([
+        {
+            path: '/expenses', element:
+                <div>
+
+                    <NewExpense onSaveExpense={addExpenseHandler} />
+
+                    <Expenses expenses={newExpenses} />
+
+                </div>
+        }
+    ]);
+
     return (
-        <div>
-
-            <NewExpense onSaveExpense={addExpenseHandler} />
-
-            <Expenses expenses={newExpenses} />
-
-        </div>
+        <RouterProvider router={router} />
     );
 }
 
